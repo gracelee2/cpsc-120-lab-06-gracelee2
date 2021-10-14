@@ -25,6 +25,9 @@
 /// \returns the area of the rectangle defined by \p length and \p width
 int RectangleArea(int length, int width) {
   int area = 0;
-  // TODO: Implement this function given the explanation given above.
+  if(length >= 1 && width >=1){
+     area = length *width;
+  }
+
   return area;
 }
