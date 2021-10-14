@@ -1,6 +1,14 @@
-
+// Grace Lee
+// CPSC 120-01
+// 2021-10-14
+// grace1@csu.fullerton.edu
+// gracelee2
+//
+// Lab-06-02
+//
+// Function definitions used in this project
+//
 /// \file functions.cc
-/// Function definitions used in this project
 
 /// Calculate the integer square root of \p input_number using Heron's Method.
 ///
@@ -25,7 +33,21 @@
 /// is negative, -1 is returned.
 int IntegerSquareRoot(int input_number) {
   int square_root = 0;
-  // TODO: Implement this function given the explanation given above.
+  int initial_estimate = input_number / 2;
+  if (initial_estimate == 0) {
+    square_root = input_number;
+  } else if (initial_estimate < 0) {
+    square_root = -1;
+  } else {
+    int next_estimate =
+        (initial_estimate + input_number / initial_estimate) / 2;
+
+    while (next_estimate < initial_estimate) {
+      initial_estimate = next_estimate;
+      next_estimate = (initial_estimate + input_number / initial_estimate) / 2;
+    }
+    square_root = next_estimate;
+  }
   return square_root;
 }
 
