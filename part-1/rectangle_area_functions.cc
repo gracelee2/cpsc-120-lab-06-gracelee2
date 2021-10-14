@@ -1,6 +1,14 @@
+// Grace Lee
+// CPSC 120-01
+// 2021-10-14
+// grace1@csu.fullerton.edu
+// @gracelee2
+//
+// Lab-06-01
+//
+// Function definitions used in this project
 
 /// \file functions.cc
-/// Function definitions used in this project
 
 /// Calculate the area of a triangle defined by \p length and \p width.
 ///
@@ -25,8 +33,8 @@
 /// \returns the area of the rectangle defined by \p length and \p width
 int RectangleArea(int length, int width) {
   int area = 0;
-  if(length >= 1 && width >=1){
-     area = length *width;
+  if (length >= 1 && width >= 1) {
+    area = length * width;
   }
 
   return area;
