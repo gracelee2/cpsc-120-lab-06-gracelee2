@@ -68,8 +68,20 @@ int IntegerSquareRoot(int input_number) {
 ///
 /// \param number a positive integer between 2 and 2147483647
 /// \returns true if \p number is prime, false otherwise
+int input_number = 0;
 bool IsPrime(int number) {
   bool is_prime_flag = false;
-  // TODO: Implement this function given the explanation given above.
+  if(number <= 1){
+    is_prime_flag = false;
+  }
+  for (int counter = 2; counter <= IntegerSquareRoot(input_number); counter++){
+     if (input_number % counter == 0) {
+      is_prime_flag = false;
+
+    }else{
+      is_prime_flag = true;
+      break;
+    }
+  }
   return is_prime_flag;
 }
