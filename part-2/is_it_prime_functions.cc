@@ -2,7 +2,7 @@
 // CPSC 120-01
 // 2021-10-14
 // grace1@csu.fullerton.edu
-// gracelee2
+// @gracelee2
 //
 // Lab-06-02
 //
@@ -74,10 +74,9 @@ bool IsPrime(int number) {
   if (number <= 1) {
     is_prime_flag = false;
   }
-  for (int counter = 2; counter <= IntegerSquareRoot(number); counter++){
-     if (number % counter == 0) {
+  for (int counter = 2; counter <= IntegerSquareRoot(number); counter++) {
+    if (number % counter == 0) {
       is_prime_flag = false;
-
     }
   }
   return is_prime_flag;

@@ -1,6 +1,15 @@
+// Grace Lee
+// CPSC 120-01
+// 2021-10-22
+// grace1@csu.fullerton.edu
+// @gracelee2
+//
+// Lab-06-02
+//
+// Command line program that verifies if the given number is prime or not.
+//
 
 /// \file is_it_prime.cc
-/// Command line program that verifies if the given number is prime or not.
 
 #include <iostream>
 #include <vector>
@@ -14,19 +23,34 @@ using namespace std;
 /// The program uses command line arguments. It requires at least one argument
 /// which must be a postive integer between 1 and 2147483647.
 int main(int argc, char const* argv[]) {
-  // TODO: Convert argv to a vector<string>. Name this variable args
-  // TODO: Check to make sure there are enough arguments on the command line
-  // for your program to continue. You need to have the length and width.
-  // Look at the Example Output section of the README for the text of the
-  // error message. Don't forget to use try and catch.
-  // TODO: If there aren't enough arguments, return 1 (end the program).
-  // TODO: Declare an int variables, input_number
-  // TODO: Use stoi() and convert argument 1 from a string
-  // to an integer. Store arugment 1 in input_number. Don't forget to use try
-  // and catch.
-  // TODO: If input_number is prime, print the message that the input
-  // number is prime. Else, print the message that the input number is not
-  // prime. Look at the Example Output section of the README for the text of the
-  // message.
+  vector<string> args = vector<string>(argv, argv + argc);
+  if (args.size() < 2) {
+    cout << "Please provide a number to check.\n";
+    cout << "For example:\n";
+    cout << "./is_it_prime 2147483647\n";
+    try {
+      cout << args.at(0) << "2147483647"
+           << "\n";
+    } catch (out_of_range const& problem) {
+      cout << "Uh-oh, you went out of bounds.\n";
+      cout << problem.what() << "\n";
+      return 1;
+    }
+    return 1;
+  }
+  int input_number = 0;
+  try {
+    input_number = stoi(args.at(1));
+  } catch (const exception& problem) {
+    cout << "There was a problem reading the input number.\n";
+    cout << problem.what() << "\n";
+    return (1);
+  }
+  if (IsPrime(input_number) == true) {
+    cout << input_number << " is prime.\n";
+  } else {
+    cout << input_number << " is not prime.\n";
+  }
+
   return 0;
 }
