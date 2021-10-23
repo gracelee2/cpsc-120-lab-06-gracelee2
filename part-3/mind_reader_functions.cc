@@ -1,3 +1,13 @@
+// Grace Lee
+// CPSC 120-01
+// 2021-10-22
+// grace1@csu.fullerton.edu
+// gracelee2
+//
+// Lab-06-03
+//
+// Part 1 of lab 07
+
 #include "mind_reader_functions.h"
 
 #include <unistd.h>
@@ -66,7 +76,18 @@ std::string FaceValue(const std::string& card) {
 /// \remark This is in the inverse of NumericValueToFaceValue()
 int NumericValue(const std::string& face_value) {
   int numeric_value = 0;
-  // TODO: Implement this function given the explanation given above.
+  if ((face_value == "J") || (face_value == "j")) {
+    numeric_value = 10;
+  } else if ((face_value == "Q") || (face_value == "q")) {
+    numeric_value = 11;
+  } else if ((face_value == "K") || (face_value == "k")) {
+    numeric_value = 12;
+  } else if (face_value == "A") {
+    numeric_value = 0;
+  } else {
+    numeric_value = stoi(face_value) - 1;
+  }
+  return numeric_value;
   return numeric_value;
 }
 
@@ -110,7 +131,8 @@ int NumericValue(const std::string& face_value) {
 /// 52
 int DeckOrderValue(const std::string& card) {
   int deck_order_value = 0;
-  // TODO: Implement this function given the explanation given above.
+  string card_one = "";
+  deck_order_value = NumericValue(FaceValue(card_one)) * 4 + SuitOffset(Suit(card_one));
   return deck_order_value;
 }
 
@@ -125,7 +147,17 @@ int DeckOrderValue(const std::string& card) {
 /// \remark This is the inverse of NumericValue()
 std::string NumericValueToFaceValue(int value) {
   string face_value;
-  // TODO: Implement this function given the explanation given above.
+  if (NumericValue(value) = 10){
+    face_value = "J";
+  } else if (NumericValue(value = 11){
+    face_value = "Q";
+  } else if (NumericValue(value = 12){
+    face_value = "K";
+  } else if (NumericValue(value = 0){
+    face_value = "A";
+  } else {
+    face_value = std::to_string(numeric_value);
+  }
   return face_value;
 }
 
@@ -140,7 +172,15 @@ int SuitOffset(const std::string& suit) {
   // This follows *alphabetical order* CDHS
   // not CHSD
   int offset = 0;
-  // TODO: Implement this function given the explanation given above.
+  if(suit == "C"){
+    offset = 1;
+  } else if(suit == "D"){
+    offset = 2;
+  } else if(suit == "H"){
+    offset = 3;
+  } else if(suit == "S"){
+    offset = 4;
+  }
   return offset;
 }
 
